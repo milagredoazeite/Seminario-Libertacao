@@ -14,16 +14,16 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2716286378753927');
+    fbq('init', '624745965067109');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2716286378753927&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=624745965067109&ev=PageView&noscript=1"
     /></noscript>
     <style>
         :root {
             --primary-color: #1a1a1a;
-            --accent-color: #d4af37; /* Dourado para destaque */
+            --accent-color: #d4af37;
             --text-light: #ffffff;
         }
         body {
@@ -45,28 +45,16 @@
             margin-bottom: 10px;
             text-transform: uppercase;
         }
-        .video-placeholder {
-            background: #333;
-            padding: 56.25% 0 0 0; /* 16:9 Aspect Ratio */
-            position: relative;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .video-placeholder iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 8px;
-        }
         .content-box {
             background: rgba(255,255,255,0.05);
             padding: 30px;
             border-radius: 12px;
             margin: 20px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
         .cta-button {
             display: inline-block;
-            background-color: #25d366; /* Cor WhatsApp */
+            background-color: #25d366;
             color: white;
             padding: 20px 40px;
             text-decoration: none;
@@ -76,9 +64,7 @@
             transition: transform 0.3s ease;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
+        .cta-button:hover { transform: scale(1.05); }
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -90,6 +76,9 @@
             border-left: 3px solid var(--accent-color);
             padding-left: 15px;
         }
+        @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -97,12 +86,12 @@
     <div class="container">
         <header class="header">
             <h1>⛓️ Libertação Profética</h1>
-            <p>É hora de quebrar as correntes e viver a plenitude de Deus.</p>
+            <p>Ministério Apostólico Avivamento da Fé (MAPAF)</p>
         </header>
 
         <section class="content-box">
-            <h2>"O Espírito do Senhor está sobre mim..."</h2>
-            <p>O MAPAF convida você para o <strong>Seminário de Libertação</strong>, um encontro marcado pelo poder e renovo espiritual em Manaus.</p>
+            <h2>Participe do Seminário</h2>
+            <p>É hora de quebrar as correntes e viver a plenitude do que Deus reservou para você!</p>
             
             <div class="info-grid">
                 <div class="item-info">
@@ -122,11 +111,10 @@
         </section>
 
         <section style="margin: 40px 0;">
-            <h3>Sua liberdade começa aqui!</h3>
+            <h3>Garanta sua vaga!</h3>
             <a href="https://wa.me/5592996275699?text=Quero%20me%20inscrever%20no%20Seminário%20de%20Libertação" class="cta-button">
-                QUERO ME INSCREVER AGORA
+                QUERO ME INSCREVER PELO WHATSAPP
             </a>
-            <p style="font-size: 0.8em; margin-top: 15px; opacity: 0.7;">Vagas limitadas. Garanta sua participação.</p>
         </section>
     </div>
 
