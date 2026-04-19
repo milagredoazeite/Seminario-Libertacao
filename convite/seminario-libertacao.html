@@ -27,30 +27,66 @@
             --text-dark: #222222;
         }
 
+        /* Configurações específicas para Impressão A4 */
         @media print {
-            @page { size: A4; margin: 0; }
-            body { background-color: var(--bg-color) !important; -webkit-print-color-adjust: exact; }
-            .no-print { display: none; }
+            @page { 
+                size: A4; 
+                margin: 0; 
+            }
+            body { 
+                background-color: white !important; 
+                -webkit-print-color-adjust: exact; 
+            }
+            .no-print { 
+                display: none !important; 
+            }
+            .banner-container {
+                border: none !important;
+                box-shadow: none !important;
+                width: 210mm;
+                height: 297mm;
+            }
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            text-align: center;
+            padding: 20px;
+            background-color: #ccc; /* Fundo cinza fora do papel para contraste na tela */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Botão de Impressão Flutuante */
+        .print-command-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .print-command-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .banner-container {
             width: 210mm;
             min-height: 297mm;
-            margin: 0 auto;
+            background-color: var(--bg-color);
             padding: 20px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid #999;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
             position: relative;
-            background: var(--bg-color);
         }
 
         .header {
@@ -93,7 +129,6 @@
             font-size: 16pt;
         }
 
-        /* Container do QR Code */
         .qr-container {
             width: 160px;
             margin: 20px auto;
@@ -129,6 +164,10 @@
 </head>
 <body>
 
+    <button class="print-command-btn no-print" onclick="window.print();">
+        🖨️ IMPRIMIR CONVITE (A4)
+    </button>
+
     <div class="banner-container">
         <div class="header">
             <div class="mapaf-logo">MAPAF</div>
@@ -158,7 +197,7 @@
         <div class="footer">
             <p><strong>Instagram:</strong> @mapaf_12 | <strong>Facebook:</strong> Mentoria Voo das Águias</p>
             <p><strong>WhatsApp:</strong> (92) 99204-0897</p>
-            <a href="https://wa.me/5592996275699" class="cta-button no-print">INSCREVER-SE VIA WHATSAPP</a>
+            <a href="https://wa.me/5592996275699" class="cta-button no-print">MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP</a>
         </div>
     </div>
 
