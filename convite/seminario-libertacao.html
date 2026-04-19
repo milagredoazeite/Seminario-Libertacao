@@ -17,179 +17,189 @@
     fbq('init', '624745965067109');
     fbq('track', 'PageView');
     </script>
-
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=624745965067109&ev=PageView&noscript=1"
+    /></noscript>
     <style>
+        /* Configurações Globais e Econômicas */
         :root {
-            --bg-color: #f2f2f2; 
-            --accent-color: #b8860b;
+            --bg-color: #f2f2f2; /* Cinza claro para economizar tinta */
+            --accent-color: #b8860b; /* Dourado escuro para contraste */
             --text-dark: #222222;
         }
 
-        /* AJUSTES PARA IMPRESSÃO A4 */
         @media print {
-            @page { 
-                size: A4; 
-                margin: 5mm; /* Margem pequena para evitar cortes */
-            }
-            body { 
-                background-color: white !important; 
-                padding: 0 !important;
-                -webkit-print-color-adjust: exact; 
-            }
-            .no-print { 
-                display: none !important; 
-            }
-            .banner-container {
-                border: none !important;
-                box-shadow: none !important;
-                width: 100% !important;
-                height: auto !important;
-                margin: 0 !important;
-                padding: 10mm !important;
-            }
-            /* Garante que o texto do WhatsApp apareça na impressão */
-            .print-whatsapp-text {
-                display: block !important;
-                font-weight: bold;
-                color: #000 !important;
-                margin-top: 10px;
-                font-size: 14pt;
-            }
+            @page { size: A4; margin: 0; }
+            body { background-color: var(--bg-color) !important; -webkit-print-color-adjust: exact; }
+            .no-print { display: none; }
         }
 
-        /* ESTILO PARA TELA */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #444;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .print-command-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            text-align: center;
         }
 
         .banner-container {
-            width: 210mm;
-            min-height: 297mm;
-            background-color: var(--bg-color);
+            width: 210mm; /* Largura A4 */
+            min-height: 297mm; /* Altura A4 */
+            margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
-            border: 1px solid #999;
-            text-align: center;
-            background-image: linear-gradient(rgba(242,242,242,0.9), rgba(242,242,242,0.9)), url('../QRCODE.png'); /* Marca d'água leve */
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 40%;
+            border: 1px solid #ccc;
+            position: relative;
+            background: var(--bg-color);
+            overflow: hidden;
+        }
+
+        /* Elemento Visual - Simulação da Imagem das Correntes */
+        .chain-visual {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            opacity: 0.15; /* Suave para não gastar tinta */
+            pointer-events: none;
         }
 
         .header {
-            margin-top: 20px;
-            border-bottom: 3px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
-        .mapaf-logo { font-size: 24pt; font-weight: bold; color: #333; }
-        .title { font-size: 45pt; font-weight: 900; margin: 15px 0; text-transform: uppercase; color: var(--text-dark); }
-        
+        /* Estilo para o Logo do Ministério */
+        .ministerio-logo {
+            max-width: 250px; /* Tamanho do logo no cabeçalho */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-size: 50pt;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin: 20px 0;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .theme {
+            font-size: 18pt;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
         .info-box {
-            background: white;
+            background: #ffffff; /* Fundo branco economiza tinta */
             border: 2px solid var(--text-dark);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 25px;
             margin: 20px auto;
-            width: 85%;
+            width: 80%;
         }
 
-        .address { margin: 25px 0; font-size: 15pt; }
-
-        .qr-container {
-            width: 150px;
-            margin: 15px auto;
-            background: white;
-            padding: 10px;
-            border: 1px solid #000;
+        .date-time {
+            font-size: 22pt;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .qr-container img { width: 100%; height: auto; }
+
+        .ministry-highlight {
+            font-size: 18pt;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .address {
+            margin: 30px 0;
+            font-size: 16pt;
+            font-weight: bold;
+        }
 
         .footer {
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(0,0,0,0.03);
-            border-top: 1px solid #ccc;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
         }
 
-        /* Elemento que só aparece na impressão */
-        .print-whatsapp-text { display: none; }
+        .social-info {
+            font-size: 13pt;
+            line-height: 1.6;
+        }
 
-        /* Estilo do botão para a tela */
+        /* Estilo para o QR Code */
+        .qr-container {
+            width: 150px; /* Tamanho do QR Code na página */
+            margin: 15px auto; /* Centraliza horizontalmente */
+            background: white; /* Garante fundo branco para leitura */
+            padding: 10px; /* Margem interna */
+            border: 1px solid #ccc; /* Borda suave */
+            border-radius: 8px; /* Cantos arredondados */
+        }
+
+        .qr-container img {
+            max-width: 100%; /* Imagem preenche o container */
+            height: auto; /* Mantém a proporção */
+            display: block; /* Evita espaços extras */
+        }
+
+        /* Botão para Versão Digital */
         .cta-button {
             background-color: #25d366;
             color: white;
-            padding: 12px 25px;
+            padding: 15px 30px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <button class="print-command-btn no-print" onclick="window.print();">
-        🖨️ CLIQUE PARA IMPRIMIR EM A4
-    </button>
-
     <div class="banner-container">
-        <div class="header">
-            <div class="mapaf-logo">MAPAF</div>
-        </div>
+        <svg class="chain-visual" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,10 Q50,50 90,10" stroke="black" fill="transparent" stroke-width="2"/>
+            <path d="M10,20 Q50,60 90,20" stroke="black" fill="transparent" stroke-width="2"/>
+        </svg>
+
+        <header class="header">
+            <img src="../logo-ministerio.png" alt="Ministério Apostólico Avivamento da Fé" class="ministerio-logo">
+        </header>
 
         <h1 class="title">Seminário de<br>Libertação</h1>
-        <p style="font-size: 18pt; font-style: italic;">"Liberte-se das amarras" (Is. 61:1)</p>
+        <p class="theme">"Tema: Liberte-se das amarras" (Is. 61:1)</p>
 
         <div class="info-box">
-            <div class="date-time" style="font-size: 20pt; font-weight: bold;">
+            <div class="date-time">
                 Sábado 25/04 • 14h às 20h<br>
                 Domingo 26/04 • 17h às 20h
             </div>
-            <p style="color: var(--accent-color); font-size: 18pt; font-weight: bold; margin: 10px 0;">Com Apóstolos Dantas e Elenice</p>
+            <p class="ministry-highlight">Com Apóstolos Dantas e Elenice</p>
         </div>
 
         <div class="address">
             📍 LOCAL: Templo MAPAF<br>
-            <strong>Av. Curaçao, 3, Qd 51 - Nova Cidade, Manaus</strong>
-        </div>
-
-        <div class="qr-container">
-            <img src="../QRCODE.png" alt="Inscrição">
-            <p style="font-size: 9pt; margin: 5px 0 0 0; font-weight: bold;">ESCANEIE PARA INSCRIÇÃO</p>
+            <span style="font-size: 14pt;">Av. Curaçao, 3, Qd 51 - Nova Cidade, Manaus</span>
         </div>
 
         <div class="footer">
-            <p style="margin: 5px 0;">Instagram: @mapaf_12 | Facebook: Mentoria Voo das Águias</p>
-            
-            <div class="print-whatsapp-text">
-                PARA MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP: (92) 99204-0897
+            <div class="qr-container">
+                <img src="../QRCODE.png" alt="QR Code para Inscrição no Seminário">
             </div>
-
-            <a href="https://wa.me/5592992040897" class="cta-button no-print">
-                MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP
-            </a>
+            
+            <div class="social-info">
+                <strong>Instagram:</strong> @mapaf_12 | <strong>Facebook:</strong> Mentoria Voo das Águias<br>
+                <strong>WhatsApp / Info:</strong> (92) 99204-0897
+            </div>
+            <a href="https://wa.me/5592996275699" class="cta-button no-print">INSCREVER-SE AGORA</a>
         </div>
     </div>
 
