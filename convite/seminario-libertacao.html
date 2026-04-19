@@ -17,9 +17,7 @@
     fbq('init', '624745965067109');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=624745965067109&ev=PageView&noscript=1"
-    /></noscript>
+
     <style>
         :root {
             --bg-color: #f2f2f2; 
@@ -27,14 +25,15 @@
             --text-dark: #222222;
         }
 
-        /* Configurações específicas para Impressão A4 */
+        /* AJUSTES PARA IMPRESSÃO A4 */
         @media print {
             @page { 
                 size: A4; 
-                margin: 0; 
+                margin: 5mm; /* Margem pequena para evitar cortes */
             }
             body { 
                 background-color: white !important; 
+                padding: 0 !important;
                 -webkit-print-color-adjust: exact; 
             }
             .no-print { 
@@ -43,22 +42,32 @@
             .banner-container {
                 border: none !important;
                 box-shadow: none !important;
-                width: 210mm;
-                height: 297mm;
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 !important;
+                padding: 10mm !important;
+            }
+            /* Garante que o texto do WhatsApp apareça na impressão */
+            .print-whatsapp-text {
+                display: block !important;
+                font-weight: bold;
+                color: #000 !important;
+                margin-top: 10px;
+                font-size: 14pt;
             }
         }
 
+        /* ESTILO PARA TELA */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #ccc; /* Fundo cinza fora do papel para contraste na tela */
+            background-color: #444;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Botão de Impressão Flutuante */
         .print-command-btn {
             background-color: #007bff;
             color: white;
@@ -69,12 +78,7 @@
             border-radius: 8px;
             cursor: pointer;
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
-        .print-command-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
         .banner-container {
@@ -84,88 +88,70 @@
             padding: 20px;
             box-sizing: border-box;
             border: 1px solid #999;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
             text-align: center;
-            position: relative;
+            background-image: linear-gradient(rgba(242,242,242,0.9), rgba(242,242,242,0.9)), url('../QRCODE.png'); /* Marca d'água leve */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
         }
 
         .header {
-            margin-top: 40px;
+            margin-top: 20px;
             border-bottom: 3px solid var(--accent-color);
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
         }
 
-        .mapaf-logo {
-            font-size: 24pt;
-            font-weight: bold;
-            color: #444;
-        }
-
-        .title {
-            font-size: 50pt;
-            font-weight: 900;
-            color: var(--text-dark);
-            margin: 20px 0;
-            text-transform: uppercase;
-        }
-
+        .mapaf-logo { font-size: 24pt; font-weight: bold; color: #333; }
+        .title { font-size: 45pt; font-weight: 900; margin: 15px 0; text-transform: uppercase; color: var(--text-dark); }
+        
         .info-box {
-            background: #ffffff;
+            background: white;
             border: 2px solid var(--text-dark);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 20px;
             margin: 20px auto;
-            width: 80%;
+            width: 85%;
         }
 
-        .date-time {
-            font-size: 22pt;
-            font-weight: bold;
-        }
-
-        .address {
-            margin: 30px 0;
-            font-size: 16pt;
-        }
+        .address { margin: 25px 0; font-size: 15pt; }
 
         .qr-container {
-            width: 160px;
-            margin: 20px auto;
+            width: 150px;
+            margin: 15px auto;
             background: white;
             padding: 10px;
             border: 1px solid #000;
-            border-radius: 10px;
         }
-
-        .qr-container img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        .qr-container img { width: 100%; height: auto; }
 
         .footer {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(0,0,0,0.05);
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0,0,0,0.03);
+            border-top: 1px solid #ccc;
         }
 
+        /* Elemento que só aparece na impressão */
+        .print-whatsapp-text { display: none; }
+
+        /* Estilo do botão para a tela */
         .cta-button {
             background-color: #25d366;
             color: white;
-            padding: 15px 30px;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
     <button class="print-command-btn no-print" onclick="window.print();">
-        🖨️ IMPRIMIR CONVITE (A4)
+        🖨️ CLIQUE PARA IMPRIMIR EM A4
     </button>
 
     <div class="banner-container">
@@ -177,11 +163,11 @@
         <p style="font-size: 18pt; font-style: italic;">"Liberte-se das amarras" (Is. 61:1)</p>
 
         <div class="info-box">
-            <div class="date-time">
+            <div class="date-time" style="font-size: 20pt; font-weight: bold;">
                 Sábado 25/04 • 14h às 20h<br>
                 Domingo 26/04 • 17h às 20h
             </div>
-            <p style="color: var(--accent-color); font-size: 18pt; font-weight: bold;">Com Apóstolos Dantas e Elenice</p>
+            <p style="color: var(--accent-color); font-size: 18pt; font-weight: bold; margin: 10px 0;">Com Apóstolos Dantas e Elenice</p>
         </div>
 
         <div class="address">
@@ -190,14 +176,20 @@
         </div>
 
         <div class="qr-container">
-            <img src="../QRCODE.png" alt="QR Code Inscrição">
-            <p style="font-size: 9pt; margin: 5px 0 0 0; font-weight: bold;"></p>
+            <img src="../QRCODE.png" alt="Inscrição">
+            <p style="font-size: 9pt; margin: 5px 0 0 0; font-weight: bold;">ESCANEIE PARA INSCRIÇÃO</p>
         </div>
 
         <div class="footer">
-            <p><strong>Instagram:</strong> @mapaf_12 | <strong>Facebook:</strong> Mentoria Voo das Águias</p>
-            <p><strong>WhatsApp:</strong> (92) 99204-0897</p>
-            <a href="https://wa.me/5592996275699" class="cta-button no-print">MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP</a>
+            <p style="margin: 5px 0;">Instagram: @mapaf_12 | Facebook: Mentoria Voo das Águias</p>
+            
+            <div class="print-whatsapp-text">
+                PARA MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP: (92) 99204-0897
+            </div>
+
+            <a href="https://wa.me/5592992040897" class="cta-button no-print">
+                MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP
+            </a>
         </div>
     </div>
 
