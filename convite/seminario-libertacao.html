@@ -25,11 +25,11 @@
             --text-dark: #222222;
         }
 
-        /* CONFIGURAÇÕES DE IMPRESSÃO A4 */
+        /* CONFIGURAÇÕES DE IMPRESSÃO - FOCO EM PÁGINA ÚNICA */
         @media print {
             @page { 
                 size: A4; 
-                margin: 5mm; 
+                margin: 0; /* Remove margens do navegador */
             }
             body { 
                 background-color: white !important; 
@@ -42,13 +42,13 @@
             .banner-container {
                 border: none !important;
                 box-shadow: none !important;
-                width: 100% !important;
+                width: 210mm !important;
+                height: 297mm !important;
                 margin: 0 !important;
-                padding: 10mm !important;
-                background-color: var(--bg-color) !important;
-            }
-            .print-whatsapp-text {
-                display: block !important;
+                padding: 8mm !important; /* Reduzido para garantir o encaixe */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between; /* Distribui o conteúdo no A4 */
             }
         }
 
@@ -67,112 +67,109 @@
             background-color: #007bff;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 12px 25px;
+            font-size: 16px;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            z-index: 100;
         }
 
         .banner-container {
             width: 210mm;
-            min-height: 297mm;
+            height: 297mm;
             background-color: var(--bg-color);
-            padding: 20px;
+            padding: 15mm;
             box-sizing: border-box;
             border: 1px solid #999;
             text-align: center;
-            position: relative;
-        }
-
-        .header {
-            margin-top: 10px;
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* Garante que as infos fiquem espalhadas na folha */
         }
 
         .ministerio-logo {
-            max-width: 220px;
+            max-width: 180px; /* Reduzido levemente para ganhar espaço */
             height: auto;
-            display: block;
             margin: 0 auto;
         }
 
         .title { 
-            font-size: 42pt; 
+            font-size: 38pt; /* Ajustado de 42pt para evitar quebra de linha excessiva */
             font-weight: 900; 
-            margin: 15px 0; 
+            margin: 10px 0; 
             text-transform: uppercase; 
             color: var(--text-dark);
-            line-height: 1.1;
+            line-height: 1.05;
         }
         
         .info-box {
             background: white;
             border: 2px solid var(--text-dark);
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px auto;
+            padding: 15px;
+            margin: 10px auto;
             width: 85%;
         }
 
-        .address { margin: 25px 0; font-size: 15pt; }
+        .address { font-size: 14pt; margin: 15px 0; }
 
         .qr-container {
-            width: 150px;
-            margin: 15px auto;
+            width: 130px; /* Reduzido de 150px para liberar espaço vertical */
+            margin: 10px auto;
             background: white;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #000;
         }
         .qr-container img { width: 100%; height: auto; }
 
         .footer {
-            margin-top: 15px;
-            padding: 15px;
+            padding-top: 10px;
             border-top: 1px solid #ccc;
         }
 
         .print-whatsapp-text { 
             display: none; 
             font-weight: bold;
-            font-size: 14pt;
-            margin-top: 10px;
+            font-size: 13pt;
         }
 
         .cta-button {
             background-color: #25d366;
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <button class="print-command-btn no-print" onclick="window.print();">
-        🖨️ CLIQUE PARA IMPRIMIR EM A4
+        🖨️ CLIQUE PARA IMPRIMIR EM PÁGINA ÚNICA (A4)
     </button>
 
     <div class="banner-container">
-        <header class="header">
-            <img src="../logo-ministerio.png" alt="Ministério Apostólico Avivamento da Fé" class="ministerio-logo">
+        <header>
+            <img src="../logo-ministerio.png" alt="Logo MAPAF" class="ministerio-logo">
         </header>
 
-        <h1 class="title">Seminário de<br>Libertação</h1>
-        <p style="font-size: 18pt; font-style: italic;">"Liberte-se das amarras" (Is. 61:1)</p>
+        <div>
+            <h1 class="title">Seminário de<br>Libertação</h1>
+            <p style="font-size: 16pt; font-style: italic; margin: 5px 0;">"Liberte-se das amarras" (Is. 61:1)</p>
+        </div>
 
         <div class="info-box">
-            <div style="font-size: 20pt; font-weight: bold;">
+            <div style="font-size: 18pt; font-weight: bold;">
                 Sábado 25/04 • 14h às 20h<br>
                 Domingo 26/04 • 17h às 20h
             </div>
-            <p style="color: var(--accent-color); font-size: 18pt; font-weight: bold; margin: 10px 0;">Com Apóstolos Dantas e Elenice</p>
+            <p style="color: var(--accent-color); font-size: 16pt; font-weight: bold; margin: 8px 0;">Com Apóstolos Dantas e Elenice</p>
         </div>
 
         <div class="address">
@@ -182,18 +179,18 @@
 
         <div class="qr-container">
             <img src="../QRCODE.png" alt="Inscrição">
-            <p style="font-size: 9pt; margin: 5px 0 0 0; font-weight: bold;">ESCANEIE PARA INSCRIÇÃO</p>
+            <p style="font-size: 8pt; margin: 5px 0 0 0; font-weight: bold;">ESCANEIE PARA INSCRIÇÃO</p>
         </div>
 
         <div class="footer">
-            <p style="margin: 5px 0;">Instagram: @mapaf_12 | Facebook: Mentoria Voo das Águias</p>
+            <p style="margin: 3px 0; font-size: 11pt;">Instagram: @mapaf_12 | Facebook: Mentoria Voo das Águias</p>
             
-            <div class="print-whatsapp-text">
+            <div class="print-whatsapp-text" style="display: block;">
                 MAIS INFORMAÇÕES: (92) 99204-0897
             </div>
 
             <a href="https://wa.me/5592996275699" class="cta-button no-print">
-                MAIS INFORMAÇÕES NOS CHAME NO WHATSAPP
+                MAIS INFORMAÇÕES NO WHATSAPP
             </a>
         </div>
     </div>
